@@ -1,11 +1,11 @@
 {
-    "family": "next-uk-post-codes",
-    "executionRoleArn": "arn:aws:iam::026079580296:role/ecsTaskExecutionRole",
-    "networkMode": "awsvpc",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-1:748507680700:task-definition/node-app:1",
     "containerDefinitions": [
         {
-            "name": "next-uk-post-codes",
-            "image": "026079580296.dkr.ecr.us-east-2.amazonaws.com/next-uk-post-codes:latest",
+            "name": "node-app",
+            "image": "748507680700.dkr.ecr.ap-northeast-1.amazonaws.com/cahyaca:cd4bf613ec2a0e7ee7238e96ac55f02671d38e87",
+            "cpu": 0,
+            "memoryReservation": 512,
             "portMappings": [
                 {
                     "containerPort": 3000,
@@ -13,12 +13,44 @@
                     "protocol": "tcp"
                 }
             ],
-            "essential": true
+            "essential": true,
+            "entryPoint": [],
+            "command": [],
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": []
         }
     ],
-    "requiresCompatibilities": [
-        "FARGATE"
+    "family": "node-app",
+    "taskRoleArn": "arn:aws:iam::748507680700:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::748507680700:role/ecsTaskExecutionRole",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        }
     ],
-    "cpu": "512",
-    "memory": "1024"
+    "placementConstraints": [],
+    "compatibilities": [
+        "EXTERNAL",
+        "EC2"
+    ],
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "cpu": "1024",
+    "memory": "512",
+    "registeredAt": "2023-02-16T16:50:38.191000+07:00",
+    "registeredBy": "arn:aws:iam::748507680700:root"
 }

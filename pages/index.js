@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Homepage = ({ data }) => {
-    return <h1>{data.country} - {data.postcode}</h1>;
+    return <><h1>{data.country} - {data.postcode}</h1><h2>{data.parish}</h2></>;
 }
 
 export default Homepage;
@@ -11,7 +11,6 @@ export async function getServerSideProps() {
     // Fetch data from the external API
     const res = await axios.get(`http://api.postcodes.io/random/postcodes`)
     const data = res.data.result;
-
     // Pass the data to the page via props
     return { props: { data } }
 }
